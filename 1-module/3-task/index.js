@@ -14,4 +14,4 @@ function ucFirst(str) {
   return result;
 }
 
-console.log(ucFirst(""));
+console.log(ucFirst("'в'"));
