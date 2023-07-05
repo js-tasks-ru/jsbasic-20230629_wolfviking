@@ -1,6 +1,7 @@
-
 function ucFirst(str) {
-  // ваш код...
-}
+  let firstLetter = str.charAt(0);
+  let firstLetterUpperCase = firstLetter.toUpperCase();
+  let otherLetters = str.slice(1);
 
-console.log(ucFirst("'в'"));
+  return `${firstLetterUpperCase}${otherLetters}`;
+}
