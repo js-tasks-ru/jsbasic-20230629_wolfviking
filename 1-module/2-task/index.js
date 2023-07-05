@@ -11,10 +11,9 @@ function print(text) {
 * чтобы функция sayHello работала корректно
 */
 function isValid(name) {
-  if (/^\S*$/.test(name) && name.length >= 4) {
+  if (name && /^\S*$/.test(name) && name.length >= 4) {
     return name;
   }
-
 }
 
 function sayHello() {
