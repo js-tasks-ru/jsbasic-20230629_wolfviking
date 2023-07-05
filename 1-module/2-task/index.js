@@ -1,19 +1,13 @@
-/**
- * Эту функцию трогать не нужно
- */
 function print(text) {
   console.log(text);
 }
 
-
 /**
-* Эту функцию нужно поменять так,
-* чтобы функция sayHello работала корректно
-*/
+ * Эту функцию нужно поменять так,
+ * чтобы функция sayHello работала корректно
+ */
 function isValid(name) {
-  if (null && name && /^\S*$/.test(name) && name.length >= 4) {
-    return name;
-  }
+  // ваш код...
 }
 
 function sayHello() {
