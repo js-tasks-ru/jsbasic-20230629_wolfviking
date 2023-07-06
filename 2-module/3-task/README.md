@@ -8,7 +8,7 @@
 
 ```js
 let calculator = {
-  // ... ваш код ...
+  read(a, b) {},
 };
 
 calculator.read(3, 5);
