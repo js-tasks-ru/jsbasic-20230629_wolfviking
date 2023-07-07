@@ -1,3 +1,4 @@
+
 function truncate(str, maxlength) {
   let strLength = str.length;
   let exceedsMaxlength = strLength > maxlength;
@@ -10,3 +11,4 @@ function truncate(str, maxlength) {
 
   return str;
 }
+

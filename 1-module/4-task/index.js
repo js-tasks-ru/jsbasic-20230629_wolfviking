@@ -1,3 +1,4 @@
+
 function checkSpam(str) {
   let strLowerCase = str.toLowerCase();
 
