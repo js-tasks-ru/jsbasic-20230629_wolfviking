@@ -1,4 +1,4 @@
-function getMinMax(str) {
+function getMinMax(inputData) {
   const toArr = inputData.split(" ");
   const res = toArr
     .filter((num) => {
@@ -18,10 +18,11 @@ function getMinMax(str) {
       min = res[i];
     }
   }
-  const result = {
+  let result;
+  result = {
     min: min,
     max: max,
   };
 
-  return `min: ${result.min}, max: ${result.max}`;
+  return result;
 }
