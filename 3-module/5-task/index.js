@@ -23,5 +23,5 @@ function getMinMax(str) {
     max: max,
   };
 
-  return result;
+  return `min: ${result.min}, max: ${result.max}`;
 }
