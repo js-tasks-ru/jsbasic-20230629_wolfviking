@@ -10,7 +10,7 @@ function highlight(table) {
     }
 
     if (statusCell.dataset.available === "false") {
-      trs[i].classList.add("unavailable");
+      statusCell.classList.add("unavailable");
     }
 
     //2
