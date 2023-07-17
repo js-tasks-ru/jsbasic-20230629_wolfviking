@@ -1,7 +1,5 @@
 "use strict";
 
-//by Karachev Pavel
-
 function highlight(table) {
   let tbody = table.getElementsByTagName("tbody")[0];
   let trs = tbody.getElementsByTagName("tr");
