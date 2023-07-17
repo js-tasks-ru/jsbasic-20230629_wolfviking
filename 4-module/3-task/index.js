@@ -1,25 +1,39 @@
-function highlight(table) {
-  for (let tr of table.children[1].rows) {
-    let available = tr.cells[3];
-    if (available.hasAttribute("data-available"))
-      switch (available.dataset.available) {
-        case "true":
-          tr.classList.add("available");
-          break;
-        case "false":
-          tr.classList.add("unavailable");
-      }
-    else tr.hidden = true;
+"use strict";
 
-    let gender = tr.cells[2].textContent;
-    switch (gender) {
-      case "m":
-        tr.classList.add("male");
-        break;
-      case "f":
-        tr.classList.add("female");
+//by Karachev Pavel
+
+function highlight(table) {
+  let tbody = table.getElementsByTagName("tbody")[0];
+  let trs = tbody.getElementsByTagName("tr");
+
+  for (let i = 0; i < trs.length; i++) {
+    let statusCell = trs[i].cells[3];
+    if (!statusCell.hasAttribute("data-available")) {
+      trs[i].setAttribute("properties", "hidden");
+    } else if (statusCell.dataset.available === "true") {
+      trs[i].classList.add("available");
+    } else {
+      trs[i].classList.add("unavailable");
     }
-    let age = +tr.cells[1].textContent;
-    if (age < 18) tr.style.textDecoration = "line-through";
   }
+
+  for (let i = 0; i < trs.length; i++) {
+    let genderCell = trs[i].cells[2];
+    if (genderCell.textContent === "m") {
+      trs[i].classList.add("male");
+    } else if (genderCell.textContent === "f") {
+      trs[i].classList.add("female");
+    }
+  }
+
+  for (let i = 0; i < trs.length; i++) {
+    let ageCell = trs[i].cells[1];
+    if (+ageCell.textContent < 18) {
+      ageCell.parentElement.style.textDecoration = "line-through";
+    }
+  }
+
+  console.log(trs);
 }
+
+highlight(document.querySelector(".js-teachers"));
