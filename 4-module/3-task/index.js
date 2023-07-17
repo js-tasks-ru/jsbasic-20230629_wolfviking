@@ -1,37 +1,39 @@
-"use strict";
-
 function highlight(table) {
   let tbody = table.getElementsByTagName("tbody")[0];
   let trs = tbody.getElementsByTagName("tr");
 
   for (let i = 0; i < trs.length; i++) {
+    //1
     let statusCell = trs[i].cells[3];
-    if (!statusCell.hasAttribute("data-available")) {
-      trs[i].setAttribute("properties", "hidden");
-    } else if (statusCell.dataset.available === "true") {
-      trs[i].classList.add("available");
-    } else {
+    if (statusCell.dataset.available === "true") {
+      statusCell.classList.add("available");
+    }
+
+    if (statusCell.dataset.available === "false") {
       trs[i].classList.add("unavailable");
     }
-  }
 
-  for (let i = 0; i < trs.length; i++) {
+    //2
+    if (!statusCell.dataset.available) {
+      trs[i].setAttribute("hidden", "");
+    }
+
+    //3
     let genderCell = trs[i].cells[2];
-    if (genderCell.textContent === "m") {
+    if (genderCell.innerHTML === "m") {
       trs[i].classList.add("male");
-    } else if (genderCell.textContent === "f") {
+    }
+
+    if (genderCell.innerHTML === "f") {
       trs[i].classList.add("female");
     }
-  }
 
-  for (let i = 0; i < trs.length; i++) {
+    //4
     let ageCell = trs[i].cells[1];
-    if (+ageCell.textContent < 18) {
-      ageCell.parentElement.style.textDecoration = "line-through";
+    if (+ageCell.innerHTML < 18) {
+      trs[i].style.textDecoration = "line-through";
     }
+
+    console.log(trs);
   }
-
-  console.log(trs);
 }
-
-highlight(document.querySelector(".js-teachers"));
