@@ -5,26 +5,26 @@ const THIRD_COLUMN = 3;
 function highlight(table) {
   const actions = {
     [THIRD_COLUMN]: (root, td) => {
-      if (td.dataset.available === 'true') {
-        root.classList.toggle('available', true);
-      } else if (td.dataset.available === 'false') {
-        root.classList.toggle('unavailable', true);
-      } else if (!td.hasAttribute('data-available')) {
+      if (td.dataset.available === "true") {
+        root.classList.toggle("available", true);
+      } else if (td.dataset.available === "false") {
+        root.classList.toggle("unavailable", true);
+      } else if (!td.hasAttribute("data-available")) {
         root.hidden = true;
       }
     },
     [SECOND_COLUMN]: (root, td) => {
-      if (td.textContent === 'm') {
-        root.classList.toggle('male', true);
-      } else if (td.textContent === 'f') {
-        root.classList.toggle('female', true);
+      if (td.textContent === "m") {
+        root.classList.toggle("male", true);
+      } else if (td.textContent === "f") {
+        root.classList.toggle("female", true);
       }
     },
     [FIRST_COLUMN]: (root, td) => {
       const age = parseInt(td.textContent, 10);
 
       if (age < 18) {
-        root.style.textDecoration = 'line-through';
+        root.style.textDecoration = "line-through";
       }
     },
   };
@@ -33,7 +33,7 @@ function highlight(table) {
     Array.from(tr.cells).forEach((td, index) => {
       const fn = actions[index];
 
-      if (typeof fn === 'function') {
+      if (typeof fn === "function") {
         fn(tr, td);
       }
     });
